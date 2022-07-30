@@ -1,0 +1,15 @@
+{
+  "trashOption": "local",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "00 InBox",
+  "attachmentFolderPath": "attachement",
+  "strictLineBreaks": false,
+  "autoPairBrackets": true,
+  "autoPairMarkdown": true,
+  "pdfExportSettings": {
+    "pageSize": "Legal",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
+}
