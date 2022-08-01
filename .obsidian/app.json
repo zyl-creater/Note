@@ -1,0 +1,15 @@
+{
+  "newFileLocation": "folder",
+  "newFileFolderPath": "CodeStudy/00 InBox",
+  "attachmentFolderPath": "CodeStudy/attachement",
+  "trashOption": "local",
+  "strictLineBreaks": false,
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "smartIndentList": true,
+  "useTab": false
+}

@@ -1,5 +1,5 @@
 我的测试文档
-**测试**
+测试
 1. aa
 2. sss
 3. ddd
@@ -26,6 +26,11 @@ echo
 ```
 
 ```cpp
+int main()
+{
+	int c;
+	cin > c;
+}
 void
 ```
 
