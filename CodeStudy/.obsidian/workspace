@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "00 InBox/Shell.md",
+            "file": "02 学习笔记/fork进阶.md",
             "mode": "source",
             "source": false
           }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00 InBox/Shell.md",
+                "file": "02 学习笔记/fork进阶.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00 InBox/Shell.md",
+                "file": "02 学习笔记/fork进阶.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 InBox/Shell.md"
+                "file": "02 学习笔记/fork进阶.md"
               }
             }
           },
