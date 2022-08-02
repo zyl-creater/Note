@@ -5,11 +5,12 @@
   "trashOption": "local",
   "strictLineBreaks": false,
   "pdfExportSettings": {
-    "pageSize": "Letter",
+    "pageSize": "Legal",
     "landscape": false,
     "margin": "0",
     "downscalePercent": 100
   },
   "smartIndentList": true,
-  "useTab": false
+  "useTab": false,
+  "alwaysUpdateLinks": true
 }
