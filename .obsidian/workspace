@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#fork",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -54,6 +54,14 @@
             "type": "leaf",
             "state": {
               "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "4c9d833dfa462947",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
               "state": {}
             }
           }
@@ -128,6 +136,14 @@
               "type": "calendar",
               "state": {}
             }
+          },
+          {
+            "id": "730a3df01225f462",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
           }
         ],
         "currentTab": 3
@@ -140,8 +156,8 @@
   "lastOpenFiles": [
     "CodeStudy/02 学习笔记/frok函数.md",
     "CodeStudy/00 InBox/exec函数.md",
-    "CodeStudy/02 学习笔记/fork进阶.md",
     "CodeStudy/02 学习笔记/Shell脚本执行.md",
+    "CodeStudy/02 学习笔记/fork进阶.md",
     "CodeStudy/attachement/0_1275406158t1t0.gif",
     "CodeStudy/attachement/Pasted image 20220801110923.png",
     "CodeStudy/attachement/Pasted image 20220801112411.png",

@@ -2,15 +2,15 @@
 
 fork 子进程是为了执行新程序（fork创建了子进程后，子进程和父进程同时被OS调度执行，因此子进程可以单独的执行一个程序，这个程序宏观上将会和父进程程序同时进行）
 
-可以直接在子进程的if中写入新程序的代码。这样可以，但是不够灵活，因为我们只能把子进程程序的源代码贴过来执行（必须知道源代码，而且源代码太长了也不好控制），譬如说我们希望子进程来执行ls -la 命令就不行了（没有源代码，只有编译好的可执行程序）
+可以直接在子进程的 if 中写入新程序的代码。这样可以，但是不够灵活，因为我们只能把子进程程序的源代码贴过来执行（必须知道源代码，而且源代码太长了也不好控制），譬如说我们希望子进程来执行 **ls -la** 命令就不行了（没有源代码，只有编译好的可执行程序）
 
 使用exec族运行新的可执行程序（exec族函数可以直接把一个编译好的可执行程序直接加载运行）
 
 有了exec族函数后，我们典型的父子进程程序是这样的：子进程需要运行的程序被单独编写、单独编译连接成一个可执行程序（叫 hello），（项目是一个多进程项目）主程序为父进程，fork 创建了子进程后在子进程中 exec 来执行 hello，达到父子进程分别做不同程序同时（宏观上）运行的效果。
 
-在 **[[frok函数#^3f3cb6|fork( )]]** 后的子进程中使用 exec 函数族，可以装入和运行其它程序（子进程替换原有进程，和父进程做不同的事）。
+在 **[[frok函数#^3f3cb6|fork]]** 后的子进程中使用 exec 函数族，可以装入和运行其它程序（子进程替换原有进程，和父进程做不同的事）。exec 函数族可以根据指定的文件名或目录名找到可执行文件，并用它来取代原调用进程的数据段、代码段和堆栈段。在执行完后，原调用进程的内容除了进程号外，其它全部被新程序的内容替换了。另外，这里的可执行文件既可以是二进制文件，也可以是Linux下任何可执行脚本文件。
 
-exec 函数族可以根据指定的文件名或目录名找到可执行文件，并用它来取代原调用进程的数据段、代码段和堆栈段。在执行完后，原调用进程的内容除了进程号外，其它全部被新程序的内容替换了。另外，这里的可执行文件既可以是二进制文件，也可以是Linux下任何可执行脚本文件。
+执行exec系统调用，一般都是这样，用 fork 函数新建立一个进程，然后让进程去执行 exec 调用。我们知道，在 fork 建立新进程之后，父进各与子进程共享代码段，但数据空间是分开的，但父进程会把自己数据空间的内容 copy 到子进程中去，还有上下文也会 copy 到子进程中去。而为了提高效率，采用一种 **[[frok函数#3 fork的执行过程：|写时拷贝技术]]** ，而对于 fork 之后执行 exec 后，这种策略能够很好的提高效率，如果一开始就 copy，那么 exec 之后，子进程的数据会被放弃，被新的进程所代替。
 
 # 2. Linux中使用exec函数族的两种情况
 
@@ -63,6 +63,197 @@ Sehll 进程堆栈中存放着该用户下的所有环境变量，使用不带 �
 
 # 6. exec函数族关系
 
-事实上，这6个函数中真正的系统调用只有 execve，其他5个都是库函数，它们最终都会调用execve 这个系统调用，调用关系如下图所示：
+事实上，这6个函数中真正的系统调用只有 **execve**，其他5个都是库函数，它们最终都会调用execve 这个系统调用，调用关系如下图所示：
 ![[Pasted image 20220802205108.png]]
+
+# 7. exec调用举例如下
+
+```c
+char *const ps_argv[] ={"ps", "-o", "pid,ppid,pgrp,session,tpgid,comm", NULL};
+
+char *const ps_envp[] ={"PATH=/bin:/usr/bin", "TERM=console", NULL};
+
+execl("/bin/ps", "ps", "-o", "pid,ppid,pgrp,session,tpgid,comm", NULL);
+
+execv("/bin/ps", ps_argv);
+
+execle("/bin/ps", "ps", "-o", "pid,ppid,pgrp,session,tpgid,comm", NULL, ps_envp);
+
+execve("/bin/ps", ps_argv, ps_envp);
+
+execlp("ps", "ps", "-o", "pid,ppid,pgrp,session,tpgid,comm", NULL);
+
+execvp("ps", ps_argv);
+```
+
+请注意 exec 函数族形参展开时的前两个参数，第一个参数是带路径的执行码（execlp、execvp函数第一个参数是无路径的，系统会根据 PATH 自动查找然后合成带路径的执行码），第二个是不带路径的执行码，执行码可以是二进制执行码和 Shell 脚本。
+
+# 8. exec函数族使用注意点
+
+在使用exec函数族时，一定要加上错误判断语句。因为exec很容易执行失败，其中最常见的原因有：
+找不到文件或路径，此时errno被设置为ENOENT。
+数组argv和envp忘记用NULL结束，此时errno被设置为EFAULT。
+没有对用可执行文件的运行权限，此时errno被设置为EACCES。
+
+# 9. exec后新进程保持原进程以下特征
+
+环境变量（使用了execle、execve函数则不继承环境变量）；
+
+进程ID和父进程ID；
+
+实际用户ID和实际组ID；
+
+附加组ID；
+
+进程组ID；
+
+会话ID；
+
+控制终端；
+
+当前工作目录；
+
+根目录；
+
+文件权限屏蔽字；
+
+文件锁；
+
+进程信号屏蔽；
+
+未决信号；
+
+资源限制；
+
+tms_utime、tms_stime、tms_cutime以及tms_ustime值。
+
+对打开文件的处理与每个描述符的 exec 关闭标志值有关，进程中每个文件描述符有一个 exec 关闭标志 (FD_CLOEXEC)，若此标志设置，则在执行 exec 时关闭该描述符，否则该描述符仍然打开。除非特地用了 fcntl 设置了该标志，否则系统的默认操作是在 exec 后仍保持这种描述符打开，利用这一点可以实现 I/O 重定向。
+
+# 10. 代码用例测试
+
+exec.c
+```c
+#include <stdio.h>  
+#include <stdlib.h>  
+#include <unistd.h>  
+#include <string.h>  
+#include <errno.h>  
+#include <config.h>  
+  
+int main(int argc, char *argv[])  
+{  
+//以NULL结尾的字符串数组的指针，适合包含v的exec函数参数  
+char *arg[] = {"ls", "-a", NULL};  
+  
+/**  
+* 创建子进程并调用函数execl  
+* execl 中希望接收以逗号分隔的参数列表，并以NULL指针为结束标志  
+*/  
+if( fork() == 0 )  
+{  
+// in clild  
+printf( "1------------execl------------\n" );  
+if( execl( "/bin/ls", "ls","-a", NULL ) == -1 )  
+{  
+perror( "execl error " );  
+exit(1);  
+}  
+}  
+  
+/**  
+*创建子进程并调用函数execv  
+*execv中希望接收一个以NULL结尾的字符串数组的指针  
+*/  
+if( fork() == 0 )  
+{  
+// in child  
+printf("2------------execv------------\n");  
+if( execv( "/bin/ls",arg) < 0)  
+{  
+perror("execv error ");  
+exit(1);  
+}  
+}  
+  
+/**  
+*创建子进程并调用 execlp  
+*execlp中  
+*l希望接收以逗号分隔的参数列表，列表以NULL指针作为结束标志  
+*p是一个以NULL结尾的字符串数组指针，函数可以DOS的PATH变量查找子程序文件  
+*/  
+if( fork() == 0 )  
+{  
+// in clhild  
+printf("3------------execlp------------\n");  
+if( execlp( "ls", "ls", "-a", NULL ) < 0 )  
+{  
+perror( "execlp error " );  
+exit(1);  
+}  
+}  
+  
+/**  
+*创建子里程并调用execvp  
+*v 望接收到一个以NULL结尾的字符串数组的指针  
+*p 是一个以NULL结尾的字符串数组指针，函数可以DOS的PATH变量查找子程序文件  
+*/  
+if( fork() == 0 )  
+{  
+printf("4------------execvp------------\n");  
+if( execvp( "ls", arg ) < 0 )  
+{  
+perror( "execvp error " );  
+exit( 1 );  
+}  
+}  
+  
+/**  
+*创建子进程并调用execle  
+*l 希望接收以逗号分隔的参数列表，列表以NULL指针作为结束标志  
+*e 函数传递指定参数envp，允许改变子进程的环境，无后缀e时，子进程使用当前程序的环境  
+*/  
+if( fork() == 0 )  
+{  
+printf("5------------execle------------\n");  
+if( execle("/bin/ls", "ls", "-a", NULL, NULL) == -1 )  
+{  
+perror("execle error ");  
+exit(1);  
+}  
+}  
+  
+/**  
+*创建子进程并调用execve  
+* v 希望接收到一个以NULL结尾的字符串数组的指针  
+* e 函数传递指定参数envp，允许改变子进程的环境，无后缀e时，子进程使用当前程序的环境  
+*/  
+if( fork() == 0 )  
+{  
+printf("6------------execve-----------\n");  
+if( execve( "/bin/ls", arg, NULL ) == 0)  
+{  
+perror("execve error ");  
+exit(1);  
+}  
+}  
+return EXIT_SUCCESS;  
+}
+```
+
+运行结果
+```shell
+1------------execl------------
+2------------execv------------
+3------------execlp------------
+4------------execvp------------
+5------------execle------------
+6------------execve-----------
+.  ..  exec  exec.c  fork_test  fork_test.c  main  main.c  note.sh  prt  prt.c  son  son.c  test  test.c
+.  ..  exec  exec.c  fork_test  fork_test.c  main  main.c  note.sh  prt  prt.c  son  son.c  test  test.c
+.  ..  exec  exec.c  fork_test  fork_test.c  main  main.c  note.sh  prt  prt.c  son  son.c  test  test.c
+.  ..  exec  exec.c  fork_test  fork_test.c  main  main.c  note.sh  prt  prt.c  son  son.c  test  test.c
+.  ..  exec  exec.c  fork_test  fork_test.c  main  main.c  note.sh  prt  prt.c  son  son.c  test  test.c
+.  ..  exec  exec.c  fork_test  fork_test.c  main  main.c  note.sh  prt  prt.c  son  son.c  test  test.c
+
+```
 
