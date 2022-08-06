@@ -1,8 +1,7 @@
 # 1. 如何运行/执行脚本？
 
+note.sh
 ```shell
-note.sh文件
-
 echo "Hello World !"
 ```
 
@@ -69,7 +68,7 @@ amlogic_product_q_1.0  git_modified_files.txt  .ssh
 .bashrc                .repo_.gitconfig.json   zyltest
 ```
 
-# 3. Shell脚本存在三种不同的执行方式
+# 3. Shell脚本存在四种不同的执行方式
 
 ## ./xxx.sh
 会先按照文件中 **#!** 指定的解析器解析
@@ -79,28 +78,42 @@ amlogic_product_q_1.0  git_modified_files.txt  .ssh
 如果 bash 不存在，才会使用默认解析器
 ## . xxx.sh
 直接使用默认解析器，并不会执行第一行的 #! 指定的解析器，但第一行还是要写的
+## sh
+当我们的用户并没有执行权限时，也无法给文件增加执行权限时，可以使用 **sh** 来执行。这种方式不需要给文件添加可执行权限
 
 # 4. 三种执行情况
 
 打开终端后就会有一个解析器，我们称之为**当前解释器**
-在我们指定解释器的时候 ( 使用 ./xxx.sh 或 bash xxx.sh ) 时会创建一个子 shell 解析脚本，shell使用 **[[frok函数#^4248ff|fork()]]** 来创建子进程
+在我们指定解释器的时候 ( 使用 ./xxx.sh 或 bash xxx.sh ) 时会创建一个子 shell 解析脚本，shell使用 **[[frok函数#^4248ff|fork()]]** 来创建子进程，调用 [[exec函数]] 载入要执行的命令
 
 ![[Pasted image 20220801110923.png]]
 
-# 5. 注意：win 下写脚本，linux 下执行时
+但是对于在Linux输入的命令是有区别的，具体来说，分为内部命令（built-in）以及外部命令，向ls，cat，mkdir 这些都属于外部命令，而 echo，cd，pwd 这些都属于内置命令，如何区分这些命令是否是内置，外部命令，可以利用 type 命令来辨别
 
-CR（ 回车，ASCII 13，\\r ）LF（ 换行，ASCII 10，\\n ）
-由于在 Win 中广泛使用 CRLF 来标识一行的结束，而在 Linux / UNIX 系统中只有 LF 换行符。
-需要将 Win 文件转换成 UNIX 文件
+```shell
+zhuyuelin@ubuntu:~$ type echo
+echo is a shell builtin
+zhuyuelin@ubuntu:~$ type cd
+cd is a shell builtin
+zhuyuelin@ubuntu:~$ type pwd
+pwd is a shell builtin
+zhuyuelin@ubuntu:~$ type ls
+ls is aliased to `ls --color=auto'
+zhuyuelin@ubuntu:~$ type cat
+cat is /bin/cat
+zhuyuelin@ubuntu:~$ type mkdir
+mkdir is hashed (/bin/mkdir)
+```
 
-![[Pasted image 20220801112411.png]]
+像 cd，pwd 这些内置命令是属于 Shell 的一部分，当 Shell 一运行起来就随 Shell 加载入内存，因此，当在命令行上输入这些命令就可以像调用函数一样直接使用，效率非常高。
 
-![[Pasted image 20220801112434.png]]
+而如 ls，cat 这些外部命令却不是如此，当我们在命令行输入cat，当前的 Shell 会 fork 一个子进程，然后调用 exec 载入这个命令的可执行文件，比如 bin/cat，因此效率上稍微低了点。
 
-# 6. Shell脚本调试
+
+# 5. Shell脚本调试
 
 **-n 只读取shell脚本，但不实际执行**
-"-n"可用于测试shell脚本是否存在语法错误，但不会实际执行命令。在shell脚本编写完成之后，实际执行之前，首先使用"-n"选项来测试脚本是否存在语法错误是一个很好的习惯。因为某些shell脚本在执行时会对系统环境产生影响，比如生成或移动文件等，如果在实际执行才发现语法错误，您不得不手工做一些系统环境的恢复工作才能继续测试这个脚本。
+"-n"可用于测试shell脚本是否存在语法错误，但不会实际执行命令。在shell脚本编写完成之后，实际执行之前，首先使用"-n"选项来测试脚本是否存在语法错误是一个很好的习惯。因为某些shell脚本在执行时会对系统环境产生影响，比如生成或移动文件等，如果在实际执行才发现语法错误，就不得不手动做一些系统环境的恢复工作才能继续测试这个脚本。
 
 **-c "string" 从strings中读取命令**
 "-c"选项使shell解释器从一个字符串中而不是从一个文件中读取并执行shell命令。当需要临时测试一小段脚本的执行结果时，可以使用这个选项，如下所示：  
@@ -110,3 +123,13 @@ sh -c 'a=1;b=2;let c=$a+$b;echo "c=$c"'
 
 **-x 进入跟踪方式，显示所执行的每一条命令**
 "-x"选项可用来跟踪脚本的执行，是调试shell脚本的强有力工具。"-x"选项使shell在执行脚本的过程中把它实际执行的每一个命令行显示出来，并且在行首显示一个"+"号。 "+"号后面显示的是经过了变量替换之后的命令行的内容，有助于分析实际执行的是什么命令。 "-x"选项使用起来简单方便，可以轻松对付大多数的shell调试任务,应把其当作首选的调试手段。
+
+# 6. 注意：win 下写脚本，linux 下执行时
+
+CR（ 回车，ASCII 13，\\r ）LF（ 换行，ASCII 10，\\n ）
+由于在 Win 中广泛使用 CRLF 来标识一行的结束，而在 Linux / UNIX 系统中只有 LF 换行符。
+需要将 Win 文件转换成 UNIX 文件
+
+![[Pasted image 20220801112411.png]]
+
+![[Pasted image 20220801112434.png]]

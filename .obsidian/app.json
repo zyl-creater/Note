@@ -12,5 +12,6 @@
   },
   "smartIndentList": true,
   "useTab": false,
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "showUnsupportedFiles": true
 }

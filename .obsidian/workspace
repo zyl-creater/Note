@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "CodeStudy/00 InBox/exec函数.md",
+            "file": "CodeStudy/00 InBox/字符驱动模型.md",
             "mode": "source",
             "source": false
           }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CodeStudy/00 InBox/exec函数.md",
+                "file": "CodeStudy/00 InBox/字符驱动模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CodeStudy/00 InBox/exec函数.md",
+                "file": "CodeStudy/00 InBox/字符驱动模型.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CodeStudy/00 InBox/exec函数.md"
+                "file": "CodeStudy/00 InBox/字符驱动模型.md"
               }
             }
           },
@@ -154,14 +154,15 @@
   },
   "active": "9532b1256f5ee82f",
   "lastOpenFiles": [
-    "CodeStudy/02 学习笔记/frok函数.md",
-    "CodeStudy/00 InBox/exec函数.md",
+    "CodeStudy/00 InBox/平台驱动模型.md",
+    "CodeStudy/00 InBox/字符驱动模型.md",
+    "CodeStudy/00 InBox/Linux设备驱动结构.md",
+    "CodeStudy/attachement/Pasted image 20220805153115.png",
+    "CodeStudy/attachement/Pasted image 20220805144512.png",
+    "CodeStudy/00 InBox/Pasted image 20220805135529.png.md",
+    "CodeStudy/attachement/Pasted image 20220805135529.png",
+    "CodeStudy/attachement/Pasted image 20220805114646.png",
     "CodeStudy/02 学习笔记/Shell脚本执行.md",
-    "CodeStudy/02 学习笔记/fork进阶.md",
-    "CodeStudy/attachement/0_1275406158t1t0.gif",
-    "CodeStudy/attachement/Pasted image 20220801110923.png",
-    "CodeStudy/attachement/Pasted image 20220801112411.png",
-    "CodeStudy/00 InBox/Shell.md",
-    "CodeStudy/attachement/Pasted image 20220801200604.png"
+    "CodeStudy/02 学习笔记/frok函数.md"
   ]
 }
