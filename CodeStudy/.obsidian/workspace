@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "02 学习笔记/fork进阶.md",
+            "file": "00 InBox/平台驱动模型.md",
             "mode": "source",
             "source": false
           }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "02 学习笔记/fork进阶.md",
+                "file": "00 InBox/平台驱动模型.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "02 学习笔记/fork进阶.md",
+                "file": "00 InBox/平台驱动模型.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "02 学习笔记/fork进阶.md"
+                "file": "00 InBox/平台驱动模型.md"
               }
             }
           },
@@ -138,6 +138,10 @@
   },
   "active": "434d34cc20eb86a8",
   "lastOpenFiles": [
+    "00 InBox/device.md",
+    "00 InBox/class.md",
+    "00 InBox/Linux 设备号.md",
+    "02 学习笔记/fork进阶.md",
     "asfdhgui.md",
     "00 InBox/Shell.md",
     "2022-07-30.md",
