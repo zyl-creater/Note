@@ -7,12 +7,8 @@
         "id": "9532b1256f5ee82f",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "CodeStudy/00 InBox/字符驱动模型.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "graph",
+          "state": {}
         }
       }
     ],
@@ -40,7 +36,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#fork",
+                "query": "tag:#define",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CodeStudy/00 InBox/字符驱动模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CodeStudy/00 InBox/字符驱动模型.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "CodeStudy/00 InBox/字符驱动模型.md"
-              }
+              "state": {}
             }
           },
           {
@@ -146,7 +138,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -154,15 +146,15 @@
   },
   "active": "9532b1256f5ee82f",
   "lastOpenFiles": [
-    "CodeStudy/00 InBox/平台驱动模型.md",
     "CodeStudy/00 InBox/字符驱动模型.md",
-    "CodeStudy/00 InBox/Linux设备驱动结构.md",
-    "CodeStudy/attachement/Pasted image 20220805153115.png",
-    "CodeStudy/attachement/Pasted image 20220805144512.png",
-    "CodeStudy/00 InBox/Pasted image 20220805135529.png.md",
-    "CodeStudy/attachement/Pasted image 20220805135529.png",
-    "CodeStudy/attachement/Pasted image 20220805114646.png",
-    "CodeStudy/02 学习笔记/Shell脚本执行.md",
-    "CodeStudy/02 学习笔记/frok函数.md"
+    "CodeStudy/00 InBox/平台驱动模型.md",
+    "CodeStudy/00 InBox/pipefs文件系统.md",
+    "CodeStudy/00 InBox/Linux 设备号.md",
+    "CodeStudy/00 InBox/device.md",
+    "CodeStudy/00 InBox/bus.md",
+    "CodeStudy/00 InBox/class.md",
+    "CodeStudy/00 InBox/driver.md",
+    "CodeStudy/00 InBox/dts设备树.md",
+    "CodeStudy/00 InBox/File operations.md"
   ]
 }
