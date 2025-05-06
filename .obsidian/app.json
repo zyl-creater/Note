@@ -1,0 +1,15 @@
+{
+  "readableLineLength": false,
+  "showLineNumber": true,
+  "spellcheck": false,
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "attachmentFolderPath": "./attachments",
+  "alwaysUpdateLinks": true,
+  "showUnsupportedFiles": true
+}

@@ -1,0 +1,1 @@
+uboot下用命令查询 keyman query exist secure_boot_set

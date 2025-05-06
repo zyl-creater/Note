@@ -1,0 +1,6 @@
+
+su
+ifconfig wlan0 down && svc bluetooth disable
+rtlbtmp
+enable uart:/dev/ttyS1
+bt_mp_Exec 1

@@ -1,0 +1,1 @@
+dumpsys window -h

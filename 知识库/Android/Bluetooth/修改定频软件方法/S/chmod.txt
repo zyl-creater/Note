@@ -1,0 +1,2 @@
+chmod 0777 /vendor/bin/rtlbtmp && chmod 0777 /vendor/bin/rtwpriv && chmod 0777 /vendor/lib/hw/btmp.default.so
+chmod 0777 /vendor/firmware/mp_rtl8822cs_config && chmod 0777  /vendor/firmware/mp_rtl8822c_fw

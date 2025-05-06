@@ -1,0 +1,188 @@
+{
+  "main": {
+    "id": "c87e46627a7063d0",
+    "type": "split",
+    "children": [
+      {
+        "id": "d29add216c900487",
+        "type": "tabs",
+        "dimension": 72.84382284382285,
+        "children": [
+          {
+            "id": "8d52f3f7dd222d12",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "知识库/Linux/中断/Linux中断学习.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Linux中断学习"
+            },
+            "group": "840fda2f8fa45b47"
+          }
+        ]
+      },
+      {
+        "id": "36794678afab6898",
+        "type": "tabs",
+        "dimension": 27.156177156177158,
+        "children": [
+          {
+            "id": "3aee0cc8f5eee664",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "知识库/Linux/中断/Linux中断学习.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Linux中断学习 的大纲"
+            },
+            "group": "840fda2f8fa45b47"
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d210fe0a29aa0537",
+    "type": "split",
+    "children": [
+      {
+        "id": "d06a1562d896ea5a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "75bf5c205330fa96",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "3e074eec52bf7254",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "Dolby",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "d7d19c4e2427375c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          },
+          {
+            "id": "e01de9b94b71b548",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": false
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "e9eee3e9c85a7c77",
+    "type": "split",
+    "children": [],
+    "direction": "horizontal",
+    "width": 443.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "8d52f3f7dd222d12",
+  "lastOpenFiles": [
+    "知识库/Linux/中断/attachments/Pasted image 20250506183725.png",
+    "知识库/Linux/中断/attachments/Pasted image 20250506183711.png",
+    "知识库/Linux/中断/attachments/Pasted image 20250506183656.png",
+    "知识库/Linux/中断/attachments/Pasted image 20250506183645.png",
+    "知识库/Linux/中断/attachments/Pasted image 20250506163326.png",
+    "知识库/Linux/中断/attachments/Pasted image 20250506152043.png",
+    "知识库/Linux/中断/attachments/Pasted image 20250506151714.png",
+    "知识库/Linux/中断/attachments",
+    "知识库/Android/KEY/Amlogic_widevine_provision_4.0 to SDMC.pdf",
+    "知识库/Linux/中断/Linux中断学习.md",
+    "知识库/Linux/中断",
+    "知识库/Android/KEY/fipkey.md",
+    "知识库/Android/KEY/NSV.md",
+    "知识库/Android/KEY/Secure_Boot V3.md",
+    "知识库/Android/KEY/Widevine cas key.md",
+    "工作/WM/BVS.md",
+    "工作/WM/WM.md",
+    "工作/WM/WM 2k.md",
+    "工作/WM/WM 4k.md",
+    "工作/dolby&ms12动态兼容/Amlogic_Dolby_MS12_v2_release_note_V0.6.1 to SDMC.pdf",
+    "工作/dolby&ms12动态兼容/Amlogic DolbyVision Release to SDMC.pdf",
+    "工作/dolby&ms12动态兼容/Amlogic_Dolby_MS12_v2_release_note_V0.6.1 to SDMC.pdf.crdownload",
+    "工作/Jenkins/Jenkins复盘总结文档.md",
+    "工作/Jenkins/Jenkins培训文档.md",
+    "知识库/Android/开机logo.md",
+    "工作/Jenkins",
+    "工作/未命名.md",
+    "工作/dolby&ms12动态兼容/Dolby&MS12动态兼容方案实现.md",
+    "工作/dolby&ms12动态兼容/Amlogic DolbyVision Release to SDMC.pdf.crdownload",
+    "Android/KEY/ms12-key/~$12 customerid 烧录方法.docx",
+    "Android/KEY/ms12-key/ms12 customerid 烧录方法.docx",
+    "Android/CPU/index.md",
+    "Android/CPU/CPU定频.md",
+    "WM/下载SDK.md",
+    "WM/真待机假待机.md",
+    "杂项记录/账号密码.md",
+    "Linux/驱动/平台驱动模型.md",
+    "Linux/驱动/Linux设备模型.md",
+    "Linux/驱动/Linux设备驱动结构.md",
+    "Linux/驱动/字符驱动模型.md",
+    "Linux/驱动/attribute.md",
+    "Linux/驱动/内核模块使用.md",
+    "Linux/驱动/attachement/QQ截图20221114114811.png",
+    "Linux/驱动/attachement/QQ截图20221114105906.png",
+    "Linux/驱动/attachement/QQ截图20221114105841.png",
+    "Linux/驱动/attachement/QQ截图20221114105824.png"
+  ]
+}

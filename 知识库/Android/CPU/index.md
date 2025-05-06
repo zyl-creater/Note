@@ -1,0 +1,1 @@
+cat /proc/meson_cpufreq/policy*/opp-table
